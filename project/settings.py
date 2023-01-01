@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import environ
 import os
+import dj_database_url
 
 env = environ.Env(
     # set debug default value
@@ -123,13 +124,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "instapixbackend",
-        'OPTIONS': {
-            'service': 'instapixbackend',
-        }
-    }
+    'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
+    #{
+    #    'ENGINE': 'django.db.backends.postgresql',
+    #    'NAME': "instapixbackend",
+    #    'OPTIONS': {
+    #        'service': 'instapixbackend',
+    #    }
+    #}
 }
 
 
