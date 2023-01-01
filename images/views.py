@@ -18,7 +18,7 @@ class GenerateImagesView(APIView):
     def post(self, request):
         prompt = request.data['prompt']
         resolution = request.data['resolution']
-        number_of_images = request.data['numberOfImages']
+        number_of_images = request.data['nOfImages']
         res = openai.Image.create(
             prompt=prompt,
             n=number_of_images,

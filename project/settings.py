@@ -37,8 +37,11 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
+API_KEY_CUSTOM_HEADER = 'HTTP_X_API_KEY'
+
 # DJANGO-CORS-HEADERS
 CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_METHODS = [
     "OPTIONS",
     "GET",
@@ -54,6 +57,8 @@ CORS_ALLOW_HEADERS = [
     "user-agent",
     "x-csrftoken",
     "x-requested-with",
+    "X-API-KEY",
+    "HTTP_X_API_KEY"
 ]
 
 #DJANGO-REST-FRAMEWORK
@@ -61,6 +66,9 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework_api_key.permissions.HasAPIKey',
     ]
 }
 
@@ -68,7 +76,8 @@ REST_FRAMEWORK = {
 
 INSTALLED_APPS = [
     "corsheaders", #django-cors-headers
-    'images.apps.ImagesConfig',
+    "images.apps.ImagesConfig",
+    "rest_framework_api_key",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
