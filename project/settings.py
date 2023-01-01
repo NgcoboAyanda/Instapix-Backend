@@ -62,6 +62,8 @@ CORS_ALLOW_HEADERS = [
     "HTTP_X_API_KEY"
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 #DJANGO-REST-FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
@@ -91,6 +93,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
