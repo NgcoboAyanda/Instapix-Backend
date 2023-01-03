@@ -38,7 +38,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     'http://localhost:8000',
-    'https://instapixapi.onrender.com'
+    'instapixapi.onrender.com'
 ]
 
 API_KEY_CUSTOM_HEADER = 'HTTP_X_API_KEY'
