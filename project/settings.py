@@ -37,7 +37,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
-    'http://localhost:8000',
+    'localhost:8000',
     'instapixapi.onrender.com'
 ]
 
